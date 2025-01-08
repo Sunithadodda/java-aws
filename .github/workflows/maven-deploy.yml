@@ -39,18 +39,12 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
       run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=sun-java-project -Dsonar.projectName='sun-java-project'
 
-    - name: Create Artifact
-      run: |
-          mkdir -p artifact  # Create the artifact directory
-          echo "This is a sample artifact file" > artifact/sample.txt  # Example content to include in the artifact
-          ls -al artifact  # List the contents of the artifact directory to verify
 
-  
     - name: Publish Artifacts
       uses: actions/upload-artifact@v4
       with:
         name: Package
-        path: artifact/*  # The directory containing files to upload
+        path: staging/*  # The directory containing files to upload
         
 
   deploy:
