@@ -45,6 +45,9 @@ jobs:
       with:
         name: Package
         path: staging/*  # The directory containing files to upload
+
+    - name: List files in staging directory
+      run: ls -al staging
         
 
   deploy:
