@@ -54,7 +54,7 @@ jobs:
         
 
   deploy:
-    runs-on: self-hosted  # Run on your self-hosted runner
+    runs-on: ubuntu-latest
     needs: build
     steps:
       - name: Checkout code
